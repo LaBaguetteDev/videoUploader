@@ -1,7 +1,7 @@
 import tkinter as ttk
-from Model.video import Video
-from View.view import View
-from Controller.videoController import VideoController
+from model.video import Video
+from view.view import View
+from controller.videoController import VideoController
 
 
 class App(ttk.Tk):
@@ -9,18 +9,19 @@ class App(ttk.Tk):
         super().__init__()
 
         self.title('VideoUploader by LaBaguetteDev')
-
-        # Model
-        video = Video('', 0)
+        self.geometry("540x100")
+        self.resizable(False, False)
+        # model
+        video = Video('')
 
         # Vue
         view = View(self)
         view.grid(row=0, column=0, padx=10, pady=10)
 
-        # Controller
+        # controller
         controller = VideoController(video, view)
 
-        # Controller de la vue
+        # controller de la vue
         view.set_controller(controller)
 
 
